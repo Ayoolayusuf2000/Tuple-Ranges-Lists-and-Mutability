@@ -1,0 +1,80 @@
+# ========== TUPLES ==========
+# Creating tuples
+tuple1 = (1, 2, 3)  # Standard tuple
+tuple2 = 4, 5, 6    # Parentheses are optional
+single_element_tuple = (7,)  # Note the comma
+
+# Tuple operations
+print("Tuple operations:")
+print(f"tuple1: {tuple1}, length: {len(tuple1)}")
+print(f"First element of tuple2: {tuple2[0]}")
+print(f"Concatenation: {tuple1 + tuple2}")
+print(f"Slicing: {tuple1[1:]}")
+
+# Tuples are immutable - this would cause an error:
+# tuple1[0] = 10  # TypeError: 'tuple' object does not support item assignment
+
+# ========== RANGES ==========
+# Creating ranges
+range1 = range(5)         # 0 to 4
+range2 = range(1, 10, 2)  # 1, 3, 5, 7, 9
+
+# Range operations
+print("\nRange operations:")
+print(f"range1: {list(range1)}")  # Convert to list to see values
+print(f"range2: {list(range2)}")
+print(f"Third element of range2: {range2[2]}")
+print(f"Length of range1: {len(range1)}")
+
+# Ranges are immutable - this would cause an error:
+# range1[0] = 10  # TypeError: 'range' object does not support item assignment
+
+# Common use in loops
+print("\nUsing range in a loop:")
+for i in range(3):
+    print(f"Loop iteration {i}")
+
+# ========== LISTS ==========
+# Creating lists
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+mixed_list = [1, 'hello', 3.14, True]
+
+# List operations
+print("\nList operations:")
+print(f"Original list1: {list1}")
+list1[0] = 10  # Modify an element
+print(f"After modification: {list1}")
+list1.append(4)  # Add an element
+print(f"After append: {list1}")
+list1.extend([5, 6])  # Add multiple elements
+print(f"After extend: {list1}")
+list1.remove(10)  # Remove an element
+print(f"After remove: {list1}")
+print(f"Slicing: {list1[1:3]}")
+
+# Lists are mutable - all these operations work
+list1 += [7, 8]  # In-place concatenation
+list1.insert(0, 0)  # Insert at position
+del list1[0]  # Delete by index
+
+# ========== MUTABILITY DEMONSTRATION ==========
+print("\nMutability demonstration:")
+
+# Tuple (immutable) behavior
+a = (1, 2, 3)
+b = a  # Both reference the same tuple
+# a[0] = 10  # Would raise an error
+a = (10, 2, 3)  # Creates a new tuple
+print(f"Tuples - a: {a}, b: {b}")  # b remains unchanged
+
+# List (mutable) behavior
+x = [1, 2, 3]
+y = x  # Both reference the same list
+x[0] = 10  # Modifies the list in place
+print(f"Lists - x: {x}, y: {y}")  # Both show the change
+
+# To create an independent copy of a list
+z = x.copy()
+x[0] = 100
+print(f"After copy - x: {x}, z: {z}")  # z remains unchanged
